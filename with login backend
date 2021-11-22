@@ -1,0 +1,464 @@
+import { StatusBar } from 'expo-status-bar';
+import React, {useEffect, useState} from 'react';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Alert} from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import firebase from 'firebase/app';
+import "firebase/auth";
+
+function Login({ navigation }) {
+  const [values, setValues] = useState({
+    email: "",
+    pwd: ""
+})
+
+function handleChange(text, eventName) {
+    setValues(prev => {
+        return {
+            ...prev,
+            [eventName]: text
+        }
+    })
+}
+
+function Login() {
+
+    const { email, pwd } = values
+
+    firebase.auth().signInWithEmailAndPassword(email, pwd)
+        .then(() => {
+        })
+        .catch((error) => {
+            alert(error.message)
+            // ..
+        });
+}
+
+  return (
+    <View 
+      style={styles.container}>
+      <Text 
+        style={styles.headerTitle}>TIP-CASH
+      </Text>
+      <Image 
+        style={styles.tipLogo} 
+        source ={require('./assets/image/image.png')} />
+      <StatusBar 
+        style="auto" />
+      <TextInput 
+        style={styles.inputBox} 
+        placeholder="TIP Email"
+        onChangeText={text => handleChange(text, "email")}>
+      </TextInput>
+      <TextInput 
+        style={styles.inputBox} 
+        placeholder="TIP Password" 
+        secureTextEntry
+        onChangeText={text => handleChange(text, "pwd")}>
+      </TextInput>
+      <TouchableOpacity 
+        style={styles.btnLogin1} 
+        onPress={()=>navigation.navigate(Login())}>
+      <Text 
+        style={styles.btnLogin}>Login
+      </Text>
+      </TouchableOpacity>
+      <TouchableOpacity 
+        style={styles.btnRegister1} 
+        onPress={()=>navigation.navigate("Register")}>
+      <Text style={styles.btnRegister}>Register
+      </Text>
+      </TouchableOpacity>
+      </View>
+  );
+}
+
+function Register({ navigation }){
+  const [values, setValues] = useState({
+    email: "",
+    pwd: "",
+    pwd2: ""
+})
+
+function handleChange(text, eventName) {
+    setValues(prev => {
+        return {
+            ...prev,
+            [eventName]: text
+        }
+    })
+}
+
+function SignUp() {
+
+    const { email, pwd, pwd2 } = values
+
+    if (pwd == pwd2) {
+        firebase.auth().createUserWithEmailAndPassword(email, pwd)
+            .then(() => {
+            })
+            .catch((error) => {
+                alert(error.message)
+                // ..
+            });
+    } else {
+        alert("Passwords are different!")
+    }
+}
+  return (
+    <View 
+      style={styles.container}>
+      <Text 
+        style={{
+          fontSize:30, 
+          paddingVertical:70, 
+          fontWeight:'bold'}}>Registration Form
+      </Text>
+      <TextInput 
+        style={styles.inputBox} 
+        placeholder="TIP Email"
+        onChangeText={text => handleChange(text, "email")}>
+        </TextInput>
+      <TextInput 
+        style={styles.inputBox} 
+        placeholder="TIP Password" 
+        secureTextEntry
+        onChangeText={text => handleChange(text, "pwd")}>
+        </TextInput>
+        <TextInput 
+        style={styles.inputBox} 
+        placeholder="Confirm TIP Password" 
+        secureTextEntry
+        onChangeText={text => handleChange(text, "pwd2")}>
+        </TextInput>
+      <TouchableOpacity style={styles.btnRegister1} onPress={()=>SignUp()}>
+        <Text style={styles.btnRegister}>Register</Text>
+        </TouchableOpacity>
+      <TouchableOpacity style={styles.btnLogin1} onPress={()=>navigation.navigate("Login")}>
+        <Text style={styles.btnLogin}>Login</Text>
+      </TouchableOpacity>
+      </View>
+  );
+}
+
+function Home({ navigation }){
+  return (
+    <View 
+      style={styles.container}>
+      <Text 
+        style={{
+          fontSize:30, 
+          paddingVertical:150, 
+          fontWeight:'bold'}}>Welcome To TIP-CASH!
+        </Text>
+      <TouchableOpacity 
+        style={styles.btnLogin1} 
+        onPress={()=>navigation.navigate("AddBalance")}>
+      <Text 
+        style={styles.btnLogin}>Add Balance / Withdraw / Check Balance
+      </Text>
+      </TouchableOpacity>
+      <TouchableOpacity 
+        style={styles.btnLogin1} 
+        onPress={()=>navigation.navigate("ViewCode")}>
+      <Text 
+        style={styles.btnLogin}>View Code To Pay
+      </Text>
+      </TouchableOpacity>
+      <TouchableOpacity 
+        style={styles.btnLogin1} 
+        onPress={()=>navigation.navigate("ReportProb")}>
+      <Text 
+        style={styles.btnLogin}>Report a Problem
+      </Text>
+      </TouchableOpacity>
+      <TouchableOpacity 
+        style={styles.btnLogin1} 
+        onPress={() => firebase.auth().signOut()}>
+      <Text style={styles.btnLogin}>Logout
+      </Text>
+      </TouchableOpacity>
+      </View>
+  );
+}
+
+const MyFunction = () => Alert.alert('Amount Added Succesfully');
+
+const MyFunction1 = () => Alert.alert('Insufficient Balance');
+
+const MyFunction3 = () => Alert.alert('Claim your Money in TIP Registrar Office');
+
+function AddBalance({ navigation }){
+
+  const[balance, newBalance] = useState(0)
+  const[amount, setAmount] = useState()
+
+  function addTogether(){
+    const Total = balance + amount;
+    newBalance(Total);
+    MyFunction();
+  }
+
+  function subTogether(){
+    const Total = (balance < 0 && balance == 0) ? MyFunction1 : balance - amount;
+    newBalance(Total);
+    MyFunction3();
+  }
+
+    return (
+      <View style={styles.container}>
+        <Text 
+          style={{
+            fontSize:30, 
+            paddingVertical:20, 
+            fontWeight:'bold'
+            }}>Add Balance
+            </Text>
+        <TextInput 
+          style={styles.inputBox} 
+          placeholder="Enter Amount" 
+          keyboardType={'numeric'} 
+          onChangeText={(text) => setAmount(Number.parseInt(text))}>
+          </TextInput>
+        <TouchableOpacity 
+          style={styles.btnLogin1} 
+          onPress ={addTogether}>
+        <Text 
+          style={styles.btnLogin}>Add Balance
+          </Text>
+          </TouchableOpacity>
+        <TouchableOpacity 
+          style={styles.btnLogin1} 
+          onPress ={subTogether}>
+        <Text 
+          style={styles.btnLogin}>Withdraw
+          </Text>
+          </TouchableOpacity>
+        <TouchableOpacity 
+          style={styles.btnLogin1} 
+          onPress={()=>navigation.navigate("CheckBalance", {newText: balance})}>
+        <Text 
+          style={styles.btnLogin}>Check Balance
+          </Text>
+        </TouchableOpacity> 
+        <TouchableOpacity style={styles.btnLogin1} onPress={()=>navigation.navigate("Home", {newText: balance})}>
+          <Text style={styles.btnLogin}>Back</Text>
+          </TouchableOpacity> 
+          </View>
+    );
+}
+
+function CheckBalance({ route, navigation}){
+  const { newText } = route.params;
+  return (
+    <View style=
+      {styles.container}>
+      <Text 
+        style={{
+          fontSize:30, 
+          paddingVertical:150, 
+          fontWeight:'bold'}}>
+          Current Balance: {JSON.stringify(newText)} PHP
+      </Text>
+      <TouchableOpacity 
+        style={styles.btnLogin1} 
+        onPress={()=>navigation.navigate("AddBalance")}>
+      <Text style=
+        {styles.btnLogin}>
+        Back
+      </Text>
+      </TouchableOpacity>
+      </View>
+  );
+}
+
+function ViewCode({ navigation }){
+  return (
+    <View style={styles.container}>
+      <Text 
+        style={{fontSize:30, fontWeight:'bold'}}>
+        Your Code is:
+      </Text>
+      <Text 
+        style={{fontSize:20, textAlign:'center'}}>
+        R3fGH7X95iW
+      </Text>
+      <TouchableOpacity 
+        style={styles.btnLogin1} 
+        onPress={()=>navigation.navigate("Home")}>
+      <Text 
+        style={styles.btnLogin}>Back
+      </Text>
+      </TouchableOpacity>
+      </View>
+  );
+}
+
+const MyFunction2 = () => Alert.alert('We receive your issues, Sorry for inconvience, We are now fixing the issues.');
+function ReportProb({ navigation }){
+  return (
+    <View style={styles.container}>
+      <Text 
+        style={{
+          fontSize:30, 
+          fontWeight:'bold'}}>Share your issues or concern{"\n"}
+      </Text>
+      <TextInput 
+        style={styles.inputBox} 
+        placeholder="Name">
+      </TextInput>
+      <TextInput 
+        style={styles.inputBox} 
+        placeholder="Subject/Issue">
+      </TextInput>
+      <TextInput style={{
+        width:350,
+        height:250,
+        marginVertical:10,
+        backgroundColor:'rgba(255, 255, 255,0.3)',
+        borderRadius:25,
+        paddingHorizontal:30,
+        fontSize:20,
+        color:"black"}} 
+        placeholder="Message">
+        </TextInput>
+      <TouchableOpacity 
+        style={styles.btnLogin1} 
+        onPress={MyFunction2}>
+      <Text 
+        style={styles.btnLogin}>Submit
+      </Text>
+      </TouchableOpacity>
+      <TouchableOpacity 
+        style={styles.btnLogin1} 
+        onPress={()=>navigation.navigate("Home")}>
+      <Text style={styles.btnLogin}>Back
+      </Text>
+        </TouchableOpacity>
+      </View>
+  );
+}
+
+const Stack = createNativeStackNavigator();
+export default function App(){
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  // Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCVfhL17PrN3r8s4Axvgxya2q-VE8uDpmo",
+  authDomain: "tipcash-ae4d3.firebaseapp.com",
+  projectId: "tipcash-ae4d3",
+  storageBucket: "tipcash-ae4d3.appspot.com",
+  messagingSenderId: "316084407441",
+  appId: "1:316084407441:web:203b42a7175ebd005d0330"
+};
+
+//Checking if firebase has been initialized
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+} else {
+  firebase.app();
+}
+
+useEffect(()=>{
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user != null) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false);
+    }
+  });
+},[])
+
+
+
+  return (
+    <NavigationContainer>
+      {isLoggedIn ? <Stack.Navigator 
+        screenOptions={{
+        headerShown: false,
+        }}>
+        <Stack.Screen name="Home" component={Home}/>
+        <Stack.Screen name="AddBalance" component={AddBalance} />
+        <Stack.Screen name="CheckBalance" component={CheckBalance} />
+        <Stack.Screen name="ViewCode" component={ViewCode} />
+        <Stack.Screen name="ReportProb" component={ReportProb} />
+      </Stack.Navigator> :
+        <Stack.Navigator 
+          screenOptions={{
+          headerShown: false,
+          }}>
+         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+        </Stack.Navigator>}
+    </NavigationContainer>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f1c40f',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  headerTitle: {
+    marginVertical:80,
+    borderColor:'#bdc3c7',
+    fontSize:70,
+    fontWeight:'bold'
+  },
+
+  tipLogo: {
+    width:120,
+    height:120,
+    resizeMode:'contain',
+    alignItems:'center',
+    margin:15
+  },
+
+  inputBox:{
+    width:350,
+    height:50,
+    marginVertical:10,
+    backgroundColor:'rgba(255, 255, 255,0.3)',
+    borderRadius:25,
+    paddingHorizontal:30,
+    fontSize:20,
+    color:"black"
+  },
+
+  btnLogin:{
+    fontSize:16,
+    fontWeight: 'bold',
+    color:'black',
+    textAlign:'center'
+  },
+
+  btnLogin1:{
+    width:350,
+    backgroundColor:'rgba(255, 255, 255,0.3)',
+    borderRadius:25,
+    color:"black",
+    marginVertical: 10,
+    paddingVertical: 16
+  },
+
+  btnRegister:{
+    fontSize:16,
+    fontWeight: 'bold',
+    color:'black',
+    textAlign:'center'
+  },
+
+  btnRegister1:{
+    width:350,
+    backgroundColor:'rgba(255, 255, 255,0.3)',
+    borderRadius:25,
+    color:"black",
+    marginVertical: 10,
+    paddingVertical: 16
+  }
+});
