@@ -1,5 +1,4 @@
 #TIPCash
-An e wallet mobile application exclusively for TIP staffs and students only.
 To view the actual code navigate to App.js file..
 
 **Issues: **
@@ -15,3 +14,5 @@ To view the actual code navigate to App.js file..
 3. Implements checking whether if the user tries to add null amount or withdraw amount that is greater than the balance. 
 4. Report problem must notify admin whenever user sends an issue regards in the app. 
 
+
+Run it using android studio code.. 
