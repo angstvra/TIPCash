@@ -7,13 +7,13 @@
 </ol>
 
 <img src="https://github.com/angstvra/TIPCash/assets/93997417/6394b9dd-9fd7-4b06-af82-6bcfd0ca1e51" width="200" height="450">
-![7](https://github.com/angstvra/TIPCash/assets/93997417/1fe38edc-0a6e-46c9-900c-046a120c2620) with <img src="https://github.com/angstvra/TIPCash/assets/93997417/1fe38edc-0a6e-46c9-900c-046a120c2620" width="200" height="450">
-![6](https://github.com/angstvra/TIPCash/assets/93997417/1c25319a-30d0-4b76-8379-7694ff3f5a21) with <img src="https://your-image-url.type" width="200" height="450">
-![5](https://github.com/angstvra/TIPCash/assets/93997417/e13ac1d6-c448-4273-98a3-631cbe8271a6) with <img src="https://your-image-url.type" width="200" height="450">
-![4](https://github.com/angstvra/TIPCash/assets/93997417/f9700dfb-c31f-46a8-84f6-1408bad45e59) with <img src="https://your-image-url.type" width="200" height="450">
-![3](https://github.com/angstvra/TIPCash/assets/93997417/555c7ad1-fa68-4aed-ad01-38cdd6f1f025) with <img src="https://your-image-url.type" width="200" height="450">
-![2](https://github.com/angstvra/TIPCash/assets/93997417/332e656f-a067-45ea-8937-cbdf4338d24d) with <img src="https://your-image-url.type" width="200" height="450">
-![1](https://github.com/angstvra/TIPCash/assets/93997417/acbbf86e-d20d-44da-be9a-95f6c4592167) with <img src="https://your-image-url.type" width="200" height="450">
+<img src="https://github.com/angstvra/TIPCash/assets/93997417/1fe38edc-0a6e-46c9-900c-046a120c2620" width="200" height="450">
+<img src="https://github.com/angstvra/TIPCash/assets/93997417/1c25319a-30d0-4b76-8379-7694ff3f5a21" width="200" height="450">
+<img src="https://github.com/angstvra/TIPCash/assets/93997417/e13ac1d6-c448-4273-98a3-631cbe8271a6" width="200" height="450">
+<img src="https://github.com/angstvra/TIPCash/assets/93997417/f9700dfb-c31f-46a8-84f6-1408bad45e59" width="200" height="450">
+<img src="https://github.com/angstvra/TIPCash/assets/93997417/555c7ad1-fa68-4aed-ad01-38cdd6f1f025" width="200" height="450">
+<img src="https://github.com/angstvra/TIPCash/assets/93997417/332e656f-a067-45ea-8937-cbdf4338d24d" width="200" height="450">
+<img src="https://github.com/angstvra/TIPCash/assets/93997417/acbbf86e-d20d-44da-be9a-95f6c4592167" width="200" height="450">
 
 
 **Issues: **
