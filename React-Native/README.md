@@ -2,6 +2,7 @@
 <p>
   TIP CASH is a mobile wallet or "e-wallet" that allows user or student to pay tuition fees and other school expenses for Technological Institute of the Philippines (TIP). It is accepted in both TIP Quezon City and TIP Manila campus. It is designed to give convenience of paying school bills anywhere and anytime without the need to withdraw money. Additionally, TIPCash offers a hassle-free, secure and comes with quick email confirmation of the transactions.
 </p>
+
 ## To run the application, follow these steps: 
 <ol>
   <li>Open your command prompt or terminal.</li>
