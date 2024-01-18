@@ -6,7 +6,7 @@
   <li>Finally, choose the platform on which you want to run the application. If you prefer to run it on the web, type "npm run web" in the terminal. If you want to run it on a mobile device, type "npm run android".</li>
 </ol>
 
-![8](https://github.com/angstvra/TIPCash/assets/93997417/6394b9dd-9fd7-4b06-af82-6bcfd0ca1e51) with <img src="https://github.com/angstvra/TIPCash/assets/93997417/6394b9dd-9fd7-4b06-af82-6bcfd0ca1e51" width="200" height="450">
+<img src="https://github.com/angstvra/TIPCash/assets/93997417/6394b9dd-9fd7-4b06-af82-6bcfd0ca1e51" width="200" height="450">
 ![7](https://github.com/angstvra/TIPCash/assets/93997417/1fe38edc-0a6e-46c9-900c-046a120c2620) with <img src="https://github.com/angstvra/TIPCash/assets/93997417/1fe38edc-0a6e-46c9-900c-046a120c2620" width="200" height="450">
 ![6](https://github.com/angstvra/TIPCash/assets/93997417/1c25319a-30d0-4b76-8379-7694ff3f5a21) with <img src="https://your-image-url.type" width="200" height="450">
 ![5](https://github.com/angstvra/TIPCash/assets/93997417/e13ac1d6-c448-4273-98a3-631cbe8271a6) with <img src="https://your-image-url.type" width="200" height="450">
