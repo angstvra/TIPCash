@@ -6,6 +6,7 @@
   <li>Finally, choose the platform on which you want to run the application. If you prefer to run it on the web, type "npm run web" in the terminal. If you want to run it on a mobile device, type "npm run android".</li>
 </ol>
 
+## Screens:
 <div style="text-align: center;">
     <img src="https://github.com/angstvra/TIPCash/assets/93997417/6394b9dd-9fd7-4b06-af82-6bcfd0ca1e51" width="200" height="450">
     <img src="https://github.com/angstvra/TIPCash/assets/93997417/1fe38edc-0a6e-46c9-900c-046a120c2620" width="200" height="450">
@@ -18,18 +19,19 @@
 </div>
 
 
-**Issues: **
-1. No proper backend for login page which allows to access the home page even without entering their account data. 
-2. Balance data is not saving. No database to hold the balance.
-3. Add balance and withdraw is not functioning properly. For add balance, the current balance returns null if the user didn't specify any amount. For withdraw, the current balance returns negative number. I tried implementing a conditional checking whenever user tries to withdraw an amount that is greater than the balance but it is not working. 
-4. Report problem doesn't really have functionality.
+## Issues
+<ul>
+  <li>The login page lacks a proper backend, allowing access to the home page without entering account data.</li>
+  <li>Balance data is not being saved due to the absence of a database to store the balance information.</li>
+  <li>The "add balance" and "withdraw" functionalities are not working correctly. When adding balance, the current balance returns null if the user doesn't specify an amount. When withdrawing, the current balance returns a negative number. Additionally, the implemented conditional check for withdrawing an amount greater than the balance is not functioning as intended.</li>
+  <li>The "report problem" feature lacks functionality.</li>
+</ul>
 
+## Goals: 
+<ul>
+  <li>Implement a database to store user account information.</li>
+  <li>Connect balance data to the database, associating it with specific user accounts.</li>
+  <li>Implement checks to prevent adding a null amount and to prevent users from withdrawing more than their balance.</li>
+  <li>Enhance the "report problem" feature to notify the admin whenever a user submits an issue within the app.</li>
+</ul>
 
-**Goals: **
-1. Program should have database to holds user acocunts
-2. Balance data should also connected to the database based on the specific user. 
-3. Implements checking whether if the user tries to add null amount or withdraw amount that is greater than the balance. 
-4. Report problem must notify admin whenever user sends an issue regards in the app. 
-
-
-Run it using android studio code.. 
