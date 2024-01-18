@@ -1,5 +1,10 @@
-#TIPCash
-To view the actual code navigate to App.js file..
+## To run the application, follow these steps: 
+<ul>
+  <li>Open your command prompt or terminal.</li>
+  <li>In the terminal, navigate to the directory path of the TIPCash folder on your local machine using the "cd" command followed by the location path.</li>
+  <li>Once you've located the folder, ensure that npm is already installed. If not, type <b>"npm install"</b> in the terminal. Additionally, install the Expo CLI globally by running " <b>npm install --global expo-cli".</b></li>
+  <li>Finally, choose the platform on which you want to run the application. If you prefer to run it on the web, type "npm run web" in the terminal. If you want to run it on a mobile device, type "npm run android".</li>
+</ul>
 
 **Issues: **
 1. No proper backend for login page which allows to access the home page even without entering their account data. 
