@@ -24,6 +24,8 @@
 </div>
 
 
+<p>This is an unfinished project that will be updated or modified in the future. Issues and Goals are stated below:</p>
+
 ## Issues
 <ul>
   <li>The login page lacks a proper backend, allowing access to the home page without entering account data.</li>
